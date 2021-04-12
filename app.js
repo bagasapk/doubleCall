@@ -25,6 +25,8 @@ const bcrypt = require('bcrypt');
 
 
 var app = express();
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
 // var pino = require('express-pino-logger');
 var ExpressPinoLogger = require('express-pino-logger');
 var pino = ExpressPinoLogger({
@@ -33,6 +35,8 @@ var pino = ExpressPinoLogger({
       method: req.method,
       url: req.url,
       user: req.raw.user,
+      cookie: req.cookies,
+      session: req.session,
     }),
   },
 })
@@ -45,6 +49,11 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({
+  secret: 'key',
+  saveUninitialized: true,
+  resave: true,
+}));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(pino);
 
