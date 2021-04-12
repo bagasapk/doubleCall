@@ -9,6 +9,6 @@ Hello, I'd like to introduce myself.
 <br>
 <br>This project is about private REST API to call an URL from Third Party API
 <br>Enjoy the code!
-<br>and Thank you for coming
+<br>and Thank you for coming!
 <br>
 <br>Sincerely, Anugerah Prima Bagaskara
