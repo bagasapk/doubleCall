@@ -43,8 +43,8 @@ app.use(pino);
 
 app.use('/', indexRouter);
 app.use('/users',users);
-app.use('/movies/favorite',favoriteMovies);
 app.use('/movies', axiosRoutes);
+app.use('/movies/favorite',favoriteMovies);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
